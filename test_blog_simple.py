@@ -49,12 +49,14 @@ blog_resp = requests.post(
 
 print(f"Blog endpoint response: {blog_resp.status_code}")
 if blog_resp.status_code == 200:
-    print("✅ SUCCESS! The OpenAI 'proxies' issue is fixed.")
-    print(f"Response data: {blog_resp.json()}")
+    print("✅ SUCCESS! Blog generation completed.")
+    data = blog_resp.json()
+    print(f"File path: {data.get('file_path')}")
+    print(f"Image path: {data.get('image_path')}")
 else:
-    print("❌ FAILED: The issue is not fixed yet.")
+    print("❌ FAILED: Could not generate blog.")
     print(f"Error response: {blog_resp.text}")
     print("\nTroubleshooting steps:")
-    print("1. Make sure the server was properly restarted after downgrading OpenAI")
-    print("2. Check server logs for any additional errors")
-    print("3. Try downgrading OpenAI to an even older version (e.g., 0.27.0)") 
+    print("1. Check if the server is running correctly")
+    print("2. Verify your OpenAI API key is set correctly in .env")
+    print("3. Check server logs for any additional errors") 
