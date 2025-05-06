@@ -8,7 +8,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-def generate_images(prompt: str, count: int, size: str = "1024x1024", output_compression: int = 80, output_format: str = "webp", output_dir: str = None, output_filename: str = None) -> List[str]:
+def generate_images(prompt: str, count: int, size: str = "1024x1024", output_compression: int = 100, output_format: str = "webp", output_dir: str = None, output_filename: str = None) -> List[str]:
     logger.info(f"Generating {count} images for prompt: {prompt} with size: {size}, output_compression: {output_compression}, output_format: {output_format}")
     if output_dir:
         image_dir = Path(output_dir)

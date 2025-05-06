@@ -83,7 +83,7 @@ Generates a blog post and an accompanying image based on the provided parameters
 {
   "keywords": ["AI", "Automation", "Content Creation"],
   "language": "en",
-  "word_count": 800,
+  "word_count": 300,
   "format": "md",
   "frontmatter_schema": {
     "title": "string",
@@ -102,7 +102,7 @@ Generates a blog post and an accompanying image based on the provided parameters
   },
   "image_style": "Minimalist illustration with blue tones",
   "image_type": "webp",
-  "image_size": "1536x1024",
+  "image_size": "1024x1024",
   "image_url_suffix": "/images/blog/"
 }
 ```
