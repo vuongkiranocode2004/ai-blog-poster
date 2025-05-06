@@ -1,0 +1,122 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** API
+*   **Description:** Automate the generation of SEO-optimized blog content and images,es locally as a proof of concept.
+*   **Primary Goal:** Automate the generation of SEO-optimized blog posts and associated images, saving them in a slugified directory structure on the local filesystem.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+
+    *   `FastAPI 0.95+ (Python 3.11+)`: Place all route modules under `app/api/` using APIRouter instances.
+    *   Example 1: `app/api/metadata.py` → `@router.get("/metadata/config")`
+    *   Example 2: `app/api/image.py` → `@router.post("/generate/image")`
+    *   Example 3: `app/api/blog.py` → `@router.post("/generate/blog")`
+
+### Core Directories
+
+*   **Versioned Structure:**
+
+    *   `app/api`: FastAPI route modules
+    *   `app/services`: Business logic (OpenAI calls, file operations)
+    *   `app/models`: Pydantic schemas for requests and responses
+    *   `app/utils`: Utilities (slugify, YAML frontmatter, retries)
+    *   `app/config`: Configuration loader using python-dotenv
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+
+    *   `app/main.py`: FastAPI app instantiation, middleware, and router inclusion
+    *   `app/config/settings.py`: Environment variable loading via `load_dotenv()` and settings definitions
+    *   `app/services/openai_client.py`: OpenAI API wrapper with retry/backoff logic
+    *   `app/services/file_manager.py`: Local filesystem interactions using `pathlib`
+    *   `app/models/schemas.py`: Pydantic models for `/metadata/config`, `/generate/image`, `/generate/blog`
+    *   `cursor_metrics.md`: Rules usage metrics file to be created at project root
+
+## Tech Stack Rules
+
+*   **Version Enforcement:**
+
+    *   `python@3.11`: Use `pathlib`, `logging`, type annotations
+    *   `fastapi@0.95+`: Must use APIRouter; no legacy Flask or Django patterns
+    *   `uvicorn@0.21`: Run with `uvicorn app.main:app --reload`
+    *   `python-dotenv@0.21`: Load `.env` files in `app/config/settings.py`
+    *   `openai@*`: Implement rate-limit retries (e.g., using `tenacity`)
+
+## PRD Compliance
+
+*   "Files saved locally in a directory structure based on \"content cluster\" (slugified title). Filenames are also slugified titles.": Enforce slugify for both folder names and file names in `services/file_manager.py`.
+*   "YAML frontmatter fields configurable via request.": Accept dynamic frontmatter keys in `/generate/blog` and render accordingly in output files.
+*   "Handle OpenAI rate limits with retry/backoff.": Use exponential backoff on OpenAI 429 errors in `openai_client.py`.
+
+## App Flow Integration
+
+*   **Stack-Aligned Flow:**
+
+    *   GET /metadata/config → `app/api/metadata.py` returns supported `languages`, `formats`, `components` via Pydantic schema
+    *   POST /generate/image → `app/api/image.py` uses `openai_client.generate_images()`, saves images under `content/<slug>/images/`
+    *   POST /generate/blog → `app/api/blog.py` calls `openai_client.generate_blog()`, writes `.md`/`.mdx`/`.txt` to `content/<slug>/` via `file_manager`
+    *   Internal links formatted relative or absolute based on request parameter
+
+## Best Practices
+
+*   FastAPI
+    *   Use APIRouter in modular files and include in `main.py`
+    *   Validate all request/response data with Pydantic models
+    *   Leverage async endpoints for I/O operations
+    *   Raise `HTTPException` with proper status codes on errors
+    *   Use dependency injection for settings and clients
+*   python-dotenv
+    *   Keep secrets in `.env`; do not commit to VCS
+    *   Validate required env vars at startup
+*   OpenAI Client
+    *   Implement exponential backoff (e.g., `tenacity.retry`) on 429 or 5xx errors
+    *   Centralize API key and config in `settings.py`
+*   Logging
+    *   Configure a root logger with timestamps and INFO/ERROR levels
+    *   Use module-specific loggers for context
+*   File Operations
+    *   Use `pathlib.Path` for cross-platform paths
+    *   Ensure directories exist before writing files
+    *   Slugify titles consistently (e.g., `python-slugify`)
+
+## Rules
+
+*   Derive folder/file patterns directly from Python 3.11+ and FastAPI version.
+*   Use `app/api/` for all endpoint modules; do not mix with other conventions.
+*   All configuration must go through `app/config/settings.py` loaded from `.env`.
+*   Do not intermix sync and async code without clear boundaries.
+*   Never mix routing patterns (e.g., Flask-style decorators) with FastAPI APIRouters.
+
+## Rules Metrics
+
+Add the following instruction for analyzing rules usage:
+
+Before starting the project development, create a metrics file in the root of the project called
+
+`cursor_metrics.md`.
+
+### Instructions:
+
+*   Each time a cursor rule is used as context, update `cursor_metrics.md`.
+
+*   Use the following format for `cursor_metrics.md`:
+
+    # Rules Metrics
+
+    ## Usage
+
+    The number of times rules is used as context
+
+    *   rule-name.mdc: 5
+    *   another-rule.mdc: 2
+    *   ...other rules
+

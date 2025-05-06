@@ -33,7 +33,7 @@ BlogPostWriter API leverages the OpenAI API to generate high-quality blog conten
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/BlogPostWriter.git
+   git clone https://github.com/EmpoweredLeader/ai-blog-poster
    cd BlogPostWriter
    ```
 
@@ -67,7 +67,7 @@ BlogPostWriter API leverages the OpenAI API to generate high-quality blog conten
 
 2. The API will be available at `http://127.0.0.1:8000`
 
-3. Access the interactive API documentation at `http://127.0.0.1:8000/docs`
+3. Access the interactive API documentation at `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`
 
 ## 📝 API Endpoints
 
